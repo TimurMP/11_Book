@@ -65,6 +65,38 @@ public class Library {
         return size;
     }
 
+    public void allBooksByAuthor(String author){
+        System.out.println("All books written by " + author + ": ");
+        for (int i = 0; i < size; i++) {
+            if (author.equals(books[i].getAuthor())){
+                System.out.println("\n" + books[i]);
+            }
+        }
+    }
+
+    public void  publishedFromYear(int year){
+        System.out.println("All books published after: " + year);
+        for (int i = 0; i < size; i++) {
+            if (books[i].getOrigDatePublished() > year){
+                System.out.println("\n" + books[i]);
+            }
+        }
+    }
+
+    public void  publishedInRange(int fromYear, int toYear){
+        System.out.println("All books published between years " + fromYear + " and " + toYear);
+        for (int i = 0; i < size; i++) {
+            if (books[i].getOrigDatePublished() > fromYear && books[i].getOrigDatePublished() < toYear){
+                System.out.println("\n" + books[i]);
+            }
+        }
+    }
+
+    private void helper(){
+
+    }
+
+
 
 }
 

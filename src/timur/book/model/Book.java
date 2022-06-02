@@ -1,5 +1,7 @@
 package timur.book.model;
 
+import java.util.Objects;
+
 public class Book {
 
     private String isbn;
@@ -60,12 +62,34 @@ public class Book {
 
     }
 
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return Objects.equals(isbn, book.isbn);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(isbn);
+    }
+
     @Override
     public String toString() {
         return "Title: " + title + "\nAuthor: " + author + "\nGenre: " + genre
                 + "\nLanguage: " + language + "\nDate Published: " + datePublished
                 + "\nFirst time Published: " + origDatePublished + "\nFormat: " + format + "\nISBN: " + isbn;
     }
+
+
+
+
+
+
+
+
 
     public String getTitle() {
         return title;
