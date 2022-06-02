@@ -43,15 +43,15 @@ public class Book {
         this.datePublished = datePublished;
     }
 
-    public void printBookInfo() {
-        System.out.println("Title: " + title + "\nAuthor: " + author + "\nGenre: " + genre
-                + "\nLanguage: " + language + "\nDate Published: " + datePublished
-                + "\nFirst time Published: " + origDatePublished + "\nFormat: " + format + "\nISBN: " + isbn);
-    }
-
-    public void printBookInfo(String title, String author, String genre) {
-        System.out.println("\nTitle: " + title + "\nAuthor: " + author + "\nGenre: " + genre);
-    }
+//    public void printBookInfo() {
+//        System.out.println("Title: " + title + "\nAuthor: " + author + "\nGenre: " + genre
+//                + "\nLanguage: " + language + "\nDate Published: " + datePublished
+//                + "\nFirst time Published: " + origDatePublished + "\nFormat: " + format + "\nISBN: " + isbn);
+//    }
+//
+//    public void printBookInfo(String title, String author, String genre) {
+//        System.out.println("\nTitle: " + title + "\nAuthor: " + author + "\nGenre: " + genre);
+//    }
 
 
     public void printBookInfo(String title, String author, int yearsPassedBeforeRepublish) {
@@ -60,6 +60,12 @@ public class Book {
 
     }
 
+    @Override
+    public String toString() {
+        return "Title: " + title + "\nAuthor: " + author + "\nGenre: " + genre
+                + "\nLanguage: " + language + "\nDate Published: " + datePublished
+                + "\nFirst time Published: " + origDatePublished + "\nFormat: " + format + "\nISBN: " + isbn;
+    }
 
     public String getTitle() {
         return title;
@@ -70,6 +76,9 @@ public class Book {
         return author;
     }
 
+    public void setAuthor(String author) {
+        this.author = author;
+    }
 
     public int getOrigDatePublished() {
         return origDatePublished;

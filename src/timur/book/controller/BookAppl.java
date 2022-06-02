@@ -11,13 +11,15 @@ public class BookAppl {
         books[2] = new Book("Digital Fortress", "Dan Brown", 1998, 2004);
 
 
-        books[0].printBookInfo();
-        books[1].printBookInfo(books[1].getTitle(), books[1].getAuthor(), books[1].getGenre());
-        System.out.println();
-        books[2].printBookInfo(books[2].getTitle(), books[2].getAuthor(), yearsPassedBeforeRepublish(books[2].getOrigDatePublished()
-                , books[2].getDatePublished()));
+//        books[0].printBookInfo();
+//        books[1].printBookInfo(books[1].getTitle(), books[1].getAuthor(), books[1].getGenre());
+//        System.out.println();
+//        books[2].printBookInfo(books[2].getTitle(), books[2].getAuthor(), yearsPassedBeforeRepublish(books[2].getOrigDatePublished()
+//                , books[2].getDatePublished()));
+//
+//        listAllBooks(books);
 
-        listAllBooks(books);
+        System.out.println(books[1]);
 
 
     }
