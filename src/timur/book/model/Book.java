@@ -1,5 +1,7 @@
 package timur.book.model;
 
+import java.util.Objects;
+
 public class Book {
 
     private String isbn;
@@ -43,15 +45,15 @@ public class Book {
         this.datePublished = datePublished;
     }
 
-    public void printBookInfo() {
-        System.out.println("Title: " + title + "\nAuthor: " + author + "\nGenre: " + genre
-                + "\nLanguage: " + language + "\nDate Published: " + datePublished
-                + "\nFirst time Published: " + origDatePublished + "\nFormat: " + format + "\nISBN: " + isbn);
-    }
-
-    public void printBookInfo(String title, String author, String genre) {
-        System.out.println("\nTitle: " + title + "\nAuthor: " + author + "\nGenre: " + genre);
-    }
+//    public void printBookInfo() {
+//        System.out.println("Title: " + title + "\nAuthor: " + author + "\nGenre: " + genre
+//                + "\nLanguage: " + language + "\nDate Published: " + datePublished
+//                + "\nFirst time Published: " + origDatePublished + "\nFormat: " + format + "\nISBN: " + isbn);
+//    }
+//
+//    public void printBookInfo(String title, String author, String genre) {
+//        System.out.println("\nTitle: " + title + "\nAuthor: " + author + "\nGenre: " + genre);
+//    }
 
 
     public void printBookInfo(String title, String author, int yearsPassedBeforeRepublish) {
@@ -59,6 +61,34 @@ public class Book {
                 + yearsPassedBeforeRepublish + " years after it's original release.");
 
     }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return Objects.equals(isbn, book.isbn);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(isbn);
+    }
+
+    @Override
+    public String toString() {
+        return "Title: " + title + "\nAuthor: " + author + "\nGenre: " + genre
+                + "\nLanguage: " + language + "\nDate Published: " + datePublished
+                + "\nFirst time Published: " + origDatePublished + "\nFormat: " + format + "\nISBN: " + isbn;
+    }
+
+
+
+
+
+
+
 
 
     public String getTitle() {
@@ -70,6 +100,9 @@ public class Book {
         return author;
     }
 
+    public void setAuthor(String author) {
+        this.author = author;
+    }
 
     public int getOrigDatePublished() {
         return origDatePublished;
