@@ -18,23 +18,27 @@ public class LibraryAppl {
         lib.addBook(new Book("1235212366554", "11/22/63", "Stephen King", 2011,
                 2015, "Fiction", "123", "English", "Paperback"));
 
+        System.out.println("Books amount:");
         System.out.println(lib.getSize());
+        System.out.println("\nAll books in the shelves:");
         lib.printBooks();
-
+        System.out.println("\nRemoving book It");
+        lib.removeBookByTitle("It");
+        System.out.println("\nNew Books amount after removal:");
         System.out.println(lib.getSize());
-        lib.removeBookByTitle("11/22/63");
-        System.out.println(lib.getSize());
+        System.out.println("\nUpdating Book's author");
         lib.updateBook("Stephen King","Richard Bachman");
-        System.out.println(lib.findBookByTitle("The Stand"));
-        System.out.println("\n\n\n");
-
+//        System.out.println(lib.findBookByTitle("The Stand"));
+        System.out.println("Book with updated author:\n");
+        lib.findBookByTitle("The Stand");
+        System.out.println("\n\n\n------------------");
         lib.allBooksByAuthor("Stephen King");
-        System.out.println("\n\n\n");
-
+        System.out.println("\n");
         lib.publishedFromYear(1990);
-        System.out.println("\n\n\n");
-
+        System.out.println("\n");
         lib.publishedInRange(1980, 1990);
+
+
 
 
 

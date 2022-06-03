@@ -20,30 +20,35 @@ public class Library {
     }
 
     public Book removeBookByTitle(String title) {
-        for (int i = 0; i < size; i++) {
-            if (title.equals(books[i].getTitle())) {
-                Book victim = books[i];
-                books[i] = books[size - 1];
-                books[size - 1] = null;
-                size--;
-                return victim;
-            }
-        }
-        return null;
+        Book victim = books[helper(title)];
+        books[helper(title)] = books[size-1];
+        books[size - 1] = null;
+        size--;
+        System.out.println(title + " removed from the library");
+        return victim;
+
+    }
+
+
+
+
+    public void findBookByTitle(String title) {
+        System.out.println(books[helper(title)]);
     }
 
 
-    public Book findBookByTitle(String title) {
+    private int helper(String title){
         for (int i = 0; i < size; i++) {
-            if (title.equals(books[i].getTitle())) {
-
-                return books[i];
+            if (title.equals(books[i].getTitle())){
+                return i;
             }
-
         }
-        return null;
-
+        return -1;
     }
+
+
+
+
 
     public Book updateBook(String author, String newAuthor) {
         for (int i = 0; i < size; i++) {
@@ -92,9 +97,7 @@ public class Library {
         }
     }
 
-    private void helper(){
 
-    }
 
 
 
