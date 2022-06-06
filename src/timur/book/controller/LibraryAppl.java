@@ -22,7 +22,7 @@ public class LibraryAppl {
         System.out.println(lib.getSize());
         System.out.println("\nAll books in the shelves:");
         lib.printBooks();
-        lib.removeBookByTitle("It");
+        lib.removeBookByTitle("11/22/63");
         System.out.println("\nNew Books amount after removal:");
         System.out.println(lib.getSize());
         System.out.println("\nUpdating Book's author");
