@@ -20,24 +20,27 @@ public class Library {
     }
 
     public Book removeBookByTitle(String title) {
-        Book victim = books[helper(title)];
-        books[helper(title)] = books[size-1];
-        books[size - 1] = null;
-        size--;
-        System.out.println(title + " removed from the library");
-        return victim;
-
+        Book victim = findBookByTitle(title);
+        if (victim != null)
+        {
+            System.out.println("\nRemoving book " + victim.getTitle());
+            books[helperInt(title)] = books[size-1];
+            books[size - 1] = null;
+            size--;
+            System.out.println(title + " removed from the library");
+            return victim;
+        }
+        System.out.println("Book" + title + "couldn't be found");
+        return null;
     }
 
 
-
-
-    public void findBookByTitle(String title) {
-        System.out.println(books[helper(title)]);
+    public Book findBookByTitle(String title) {
+        return helperBook(title);
     }
 
 
-    private int helper(String title){
+    private int helperInt(String title){
         for (int i = 0; i < size; i++) {
             if (title.equals(books[i].getTitle())){
                 return i;
@@ -46,8 +49,14 @@ public class Library {
         return 0;
     }
 
-
-
+    private Book helperBook(String title){
+        for (int i = 0; i < size; i++) {
+            if (title.equals(books[i].getTitle())){
+                return books[i];
+            }
+        }
+        return null;
+    }
 
 
     public Book updateBook(String author, String newAuthor) {
@@ -70,35 +79,32 @@ public class Library {
         return size;
     }
 
-    public void allBooksByAuthor(String author){
+    public void allBooksByAuthor(String author) {
         System.out.println("All books written by " + author + ": ");
         for (int i = 0; i < size; i++) {
-            if (author.equals(books[i].getAuthor())){
+            if (author.equals(books[i].getAuthor())) {
                 System.out.println("\n" + books[i]);
             }
         }
     }
 
-    public void  publishedFromYear(int year){
+    public void publishedFromYear(int year) {
         System.out.println("All books published after: " + year);
         for (int i = 0; i < size; i++) {
-            if (books[i].getOrigDatePublished() > year){
+            if (books[i].getOrigDatePublished() > year) {
                 System.out.println("\n" + books[i]);
             }
         }
     }
 
-    public void  publishedInRange(int fromYear, int toYear){
+    public void publishedInRange(int fromYear, int toYear) {
         System.out.println("All books published between years " + fromYear + " and " + toYear);
         for (int i = 0; i < size; i++) {
-            if (books[i].getOrigDatePublished() > fromYear && books[i].getOrigDatePublished() < toYear){
+            if (books[i].getOrigDatePublished() > fromYear && books[i].getOrigDatePublished() < toYear) {
                 System.out.println("\n" + books[i]);
             }
         }
     }
-
-
-
 
 
 }
